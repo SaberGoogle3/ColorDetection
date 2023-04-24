@@ -24,7 +24,7 @@ List? _result;
   Future<dynamic> loadModel()async
   {
     await Tflite.loadModel(
-        model:'asset/images/model_unquant.tflite',
+        model:'asset/images/model_unquant_1.tflite',
         labels: 'asset/images/labels.txt');
   }
  @override
@@ -92,15 +92,6 @@ void pickCameraImage()async
   });
   detectionColor(_image!);
 }
-void pickGalleryImage()async
-{
- // var image=await ImagePicker.pickImage(source: ImageSource.gallery);
-//  if(image==null)return null;
-  setState(() {
-   // _image=File(image.path);
-  });
-  detectionColor(_image!);
-}
 
   @override
   Widget build(BuildContext context) {
@@ -108,7 +99,15 @@ void pickGalleryImage()async
      return Scaffold(
       body:Stack(
         children: [
-          CameraPreview(cameraController!),
+          Container(
+            height: double.infinity,
+            width: double.infinity,
+            child: AspectRatio(
+              aspectRatio:cameraController!.value.aspectRatio,
+              child: CameraPreview(cameraController!),
+            ),
+          ),
+          selectionButton(),
           _hasRunModel?Column(
             children: [
               SizedBox(
@@ -133,12 +132,18 @@ void pickGalleryImage()async
               color:Colors.white,
             )),
           ),
-          selectionButton(),
         ],
       ),
     );}
    else{
-     return const SizedBox();
+     return Container(
+       color: Colors.white,
+       height: 100,
+       width: 100,
+       child: const CircularProgressIndicator(
+         backgroundColor: Colors.blue,
+       ),
+     );
    }
   }
 

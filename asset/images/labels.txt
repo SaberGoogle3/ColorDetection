@@ -1,8 +1,12 @@
  black
  blue
- green
- yellow
- orange
- red
  brown
+ green
+ grey
+ orange
+ pink
+ purple
+ red
+ silver
  white
+ yellow
