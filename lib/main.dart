@@ -1,9 +1,4 @@
-import 'package:first_after/first_after/counter_screen.dart';
-import 'package:first_after/first_after/messenger.dart';
-import 'package:first_after/first_after/user_screen.dart';
 import 'package:flutter/material.dart';
-
-import 'layout/home_layout.dart';
 import 'modules/color_detection/color_detection.dart';
 
 

@@ -117,7 +117,7 @@ void pickCameraImage()async
               ),
               Container(
                 padding: const EdgeInsets.all(20),
-                child: Text('${_result![0]['label']}',
+                child:_result!.isEmpty?Text(""):Text('${_result?[0]['label']}',
                   style: TextStyle(
                     color: Colors.white,
                     fontSize: 25,
@@ -127,7 +127,7 @@ void pickCameraImage()async
             ],
           ):
           Center(
-            child: Text('Uncertainly color',style: TextStyle(
+            child: Text('Select The Color',style: TextStyle(
               fontSize: 17,
               color:Colors.white,
             )),
